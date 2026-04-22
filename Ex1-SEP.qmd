@@ -1,0 +1,219 @@
+---
+title: "Estabilidade de Sistemas de Potência: Fluxo de Carga, SIL e Transitórios - Exercício 1"
+author: "[Prof. Artur Passos Dias Lima]{style='color: black;'}"
+format:
+  revealjs: 
+    multiplex: true
+    touch: true
+    controls: true
+    theme: [simple]
+    transition: concave
+    footer: "<span style='color: #ffffff; font-size: 0.8em;'>Prof: Artur Passos Dias Lima - Todos os direitos reservados.</span>"
+    width: 1600
+    height: 900
+    margin: 0
+    title-slide-attributes:
+      data-background-color: "#ffc65c"
+    include-in-header:
+      - text: |
+          <style>
+            .logo-fixa-global { position: fixed; top: 15px; left: 15px; width: 80px; z-index: 999; pointer-events: none; }
+            #lousa-senai { 
+              padding: 30px; 
+              background-color: #1a2a3a !important; 
+              border-radius: 15px; 
+              height: 750px; 
+              overflow-y: auto;
+              color: white;
+            }
+
+            /* O SEU EFEITO DE ESCRITA CORRIGIDO PARA JUSTIFICAR */
+            #lousa-senai .fragment.visible {
+              display: block; 
+              overflow: hidden;
+              white-space: normal !important; /* PERMITE QUEBRA DE LINHA */
+              text-align: justify;
+              text-justify: inter-word;
+              width: 0;
+              animation: typing-manim 2s steps(50, end) forwards;
+              margin-bottom: 20px;
+            }
+
+            @keyframes typing-manim {
+              from { width: 0; }
+              to { width: 100%; }
+            }
+
+            .container-aviso {
+              position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+              width: 80%; text-align: center;
+            }
+            .aviso-fullscreen {
+              background: rgba(0, 0, 0, 0.85); color: #f1da08; padding: 30px;
+              border-radius: 20px; font-family: 'Courier New', monospace;
+              font-size: 1.5em; border: 3px solid #f1da08;
+            }
+
+          </style>
+    include-after-body:
+      - text: |
+          <img src="logo.png" class="logo-fixa-global">
+---
+
+## {background-color="#43e911"}
+
+::: {.container-aviso}
+::: {.aviso-fullscreen}
+**Dica para Celular:** Para melhor visualização, coloque o celular no modo horizontal.
+Clique no **Menu (☰)** → **Tools** → **Fullscreen**.
+:::
+:::
+
+---
+
+## [Exercício 1: Estabilidade e Operação de Sistemas Elétricos]{style="color: #f1da08; text-align: center; display: block;font-size: 1em;"} {background-color="#000000"}
+
+::: {#lousa-senai}
+
+::: {.fragment .escrita-estavel style="color: #ffe552; font-family: 'Courier New', monospace; font-size: 1.3em;"}
+Uma usina geradora está conectada a uma barra infinita através de uma linha de transmissão puramente reativa com reatância $X_{L} = 0,4 pu$. A tensão no terminal do gerador é $V_{S} = 1,05 pu$ e a tensão na barra receptora é $V_{R} = 1,0 pu$. Se a turbina fornece uma potência mecânica de $1,2 pu$, o sistema permanecerá estável? Caso sim, qual o ângulo de carga $\delta$?
+:::
+
+
+::: {.fragment style="color: #0cff41; font-family: 'Courier New', monospace; font-size: 1.5em;"}
+A potência ativa recebida é $\displaystyle P_{R} = \dfrac{V_{R}V_{S}sen(\delta)}{X_{L}}$. O lmite de estabilidade ocorre em $\delta = 90^{\circ}$. Logo temos que:
+:::
+
+::: {.fragment style="font-size: 1.5em;"}
+$$\displaystyle P_{R} = \dfrac{1,05 \cdot 1,0 \cdot sen(90^{\circ})}{0,4} = 2,625 pu$$
+:::
+
+::: {.fragment style="color: #93ffff; font-family: 'Courier New', monospace; font-size: 1.5em;"}
+Como a potência da turbina é $1,2 pu$ e sendo menor que a $P_{máx} = 2,625 pu$, o sistema é estável.
+:::
+
+::: {.fragment style="border: 5px solid #000000; border-radius: 15px; margin: 20px auto; padding: 20px; width: 90%; box-sizing: border-box;"}
+[**Calcular o ângulo $\delta$:**]{style="color: #08e9f1; font-family: 'Courier New', monospace;font-size: 1.3em; display: block; margin-bottom: 10px;"}
+
+::: {.fragment style="font-size: 1.5em;"}
+$$\displaystyle P_{R} = \dfrac{1,05 \cdot 1,0 \cdot sen(\delta)}{0,4}$$
+:::
+
+::: {.fragment style="font-size: 1.5em;"}
+$$\displaystyle 1,2 = \dfrac{1,05 \cdot 1,0 \cdot sen(\delta)}{0,4}$$
+:::
+
+::: {.fragment style="font-size: 1.5em;"}
+$$\displaystyle sen(\delta) = \dfrac{1,2 \cdot 0,4}{1,05} = 0,457$$
+:::
+
+::: {.fragment style="font-size: 1.5em;"}
+$$\displaystyle sen(\delta) = \dfrac{1,2 \cdot 0,4}{1,05} = 0,457$$
+:::
+
+::: {.fragment style="font-size: 1.5em;"}
+$$\displaystyle \delta = arcsen(0,457) \approx 27,2^{\circ}$$
+:::
+
+::: {.fragment style="color: #93ffff; font-family: 'Courier New', monospace; font-size: 1.5em;text-align: justify;"}
+O ângulo de carga calculado foi de **27,2°**. No contexto de estabilidade:
+
+ **Zona Estável:** $0^{\circ} < \delta < 90^{\circ}$. Nesta região, se houver um pequeno aumento na carga, o sistema consegue responder aumentando o torque elétrico.
+
+ **Zona Instável:** $\delta > 90^{\circ}$. Nesta região, qualquer aumento no ângulo resulta em uma *diminuição* da potência transmitida, o que leva ao colapso.
+
+Como **27,2°** está confortavelmente abaixo de **$90^{\circ}$**, o sistema possui uma excelente margem de reserva.
+:::
+:::
+
+::: {.fragment}
+:::
+
+:::
+
+---
+
+## [Exercício 2: Estabilidade e Operação de Sistemas Elétricos]{style="color: #f1da08; text-align: center; display: block;font-size: 1em;"} {background-color="#000000"}
+
+::: {#lousa-senai}
+
+::: {.fragment .escrita-estavel style="color: #ffe552; font-family: 'Courier New', monospace; font-size: 1.3em;"}
+Uma linha de transmissão de $500 kV$ possui indutância $L = 1,2 mH/Km$ e capacitância $C = 12nF/Km$. Calcule a Impedância de Surto $Z_{c}$ e determine se a linha consome ou produz reativos ao alimentar uma carga de $600 MW$.
+:::
+
+::: {.fragment style="border: 5px solid #000000; border-radius: 15px; margin: 20px auto; padding: 20px; width: 90%; box-sizing: border-box;"}
+[**Calculo da Impedância de Surto:**]{style="color: #08e9f1; font-family: 'Courier New', monospace;font-size: 1.3em; display: block; margin-bottom: 10px;"}
+
+::: {.fragment style="font-size: 1.5em;"}
+$$\displaystyle Z_{c} = \sqrt{\dfrac{1,2\cdot 10^{-3}}{12\cdot 10^{-9}}} = \sqrt{100.000} \approx 316,22 \Omega$$
+:::
+:::
+
+::: {.fragment style="border: 5px solid #000000; border-radius: 15px; margin: 20px auto; padding: 20px; width: 90%; box-sizing: border-box;"}
+[**Calculo do SIL (Potência Natural):**]{style="color: #08e9f1; font-family: 'Courier New', monospace;font-size: 1.3em; display: block; margin-bottom: 10px;"}
+
+::: {.fragment style="font-size: 1.5em;"}
+$$\displaystyle SIL = \dfrac{V^{2}}{Z_{c}} = \dfrac{(500.\cdot 10^{3})^{2}}{316,22} = \approx 790,6 MW$$
+:::
+:::
+
+::: {.fragment style="border: 5px solid #000000; border-radius: 15px; margin: 20px auto; padding: 20px; width: 90%; box-sizing: border-box;"}
+[**Analisando a carga, temos a conclusão que quando a carga é menor que o SIL, a linha produz potência reativa, fazendo com que a tensão tenda a subir.**]{style="color: #08e9f1; font-family: 'Courier New', monospace;font-size: 1.3em; display: block; margin-bottom: 10px;"}
+
+::: {.fragment style="font-size: 1.5em;"}
+$$\displaystyle \underbrace{600 MW}_{carga} < \underbrace{790,6 MW}_{SIL}$$
+:::
+:::
+
+::: {.fragment}
+:::
+
+:::
+
+---
+
+## [Exercício 3: Estabilidade e Operação de Sistemas Elétricos]{style="color: #f1da08; text-align: center; display: block;font-size: 1em;"} {background-color="#000000"}
+
+::: {#lousa-senai}
+
+::: {.fragment .escrita-estavel style="color: #ffe552; font-family: 'Courier New', monospace; font-size: 1.3em;"}
+Uma frente de onda de tensão (surto de manobra) de $1000 KV$ viaja por uma linha com impedância característica $Z_{0} = 400 \Omega$. A linha termina em um transformador que, para altas frequências, se comporta como uma carga puramente resistiva de $4000 \Omega$. Calcule o Coeficiente de Reflexão $\Gamma$ e a tensão total vista pelo transformador no instante da incidência.
+:::
+
+::: {.fragment style="border: 5px solid #000000; border-radius: 15px; margin: 20px auto; padding: 20px; width: 90%; box-sizing: border-box;"}
+[**Analisando o coeficiente de reflexão.**]{style="color: #08e9f1; font-family: 'Courier New', monospace;font-size: 1.3em; display: block; margin-bottom: 10px;"}
+
+::: {.fragment style="font-size: 1.5em;"}
+$$\displaystyle \Gamma = \dfrac{Z_{L} - Z_{0}}{Z_{L} + Z_{0}} = \dfrac{4000 - 400}{4000 + 400} = \dfrac{3600}{4400} \approx 0,818$$
+:::
+:::
+
+::: {.fragment style="border: 5px solid #000000; border-radius: 15px; margin: 20px auto; padding: 20px; width: 90%; box-sizing: border-box;"}
+[**Calculo da tensão refletida $V^{-}$**]{style="color: #08e9f1; font-family: 'Courier New', monospace;font-size: 1.3em; display: block; margin-bottom: 10px;"}
+
+::: {.fragment style="font-size: 1.5em;"}
+$$\displaystyle V^{-} = \Gamma \cdot V^{+} = 0,818 \cdot 1000 = 818 KV$$
+:::
+:::
+
+
+::: {.fragment style="border: 5px solid #000000; border-radius: 15px; margin: 20px auto; padding: 20px; width: 90%; box-sizing: border-box;"}
+[**Calculo da tensão total na carga $V_{L}$**]{style="color: #08e9f1; font-family: 'Courier New', monospace;font-size: 1.3em; display: block; margin-bottom: 10px;"}
+
+::: {.fragment style="font-size: 1.5em;"}
+$$\displaystyle V_{L} = V^{+} + V^{-} = 1000 + 818 = 1818 KV$$
+:::
+:::
+
+::: {.fragment .escrita-estavel style="color: #ffe552; font-family: 'Courier New', monospace; font-size: 1.3em;"}
+Notação: O transformador verá quase o dobro da tensão incidente devido à alta impedância de terminação. No exato ponto onde o cabo se conecta ao transformador, a onda que está chegando se soma à onda que está voltando.
+:::
+
+::: {.fragment .escrita-estavel style="color: #ff5278; font-family: 'Courier New', monospace; font-size: 1.3em;"}
+Isso explica por que equipamentos de subestação queimam mesmo quando o raio não cai diretamente neles. O "choque" de tensão que o equipamento sofre é muito maior do que a tensão que viajava pelo cabo, devido a esse somatório da reflexão. É por este motivo que instalamos Para-raios (DPS) o mais próximo possível dos transformadores, para "escoar" essa soma de tensões antes que ela atinja o isolamento do equipamento.
+:::
+
+::: {.fragment}
+:::
+
+:::
